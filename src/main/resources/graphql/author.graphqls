@@ -1,0 +1,29 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+type Query{
+    # 查询所有作者
+    allAuthor:[Author!]
+    # 根据Id获取作者
+    authorById(id:Long):Author!
+}
+type Mutation{
+    # 保存作者
+    saveAuthor(author:AuthorInput):Author
+    # 根据作者id删除作者
+    deleteAuthorById(id:Long):Boolean
+}
+
+input AuthorInput{
+    id:ID
+    firstName:String
+    lastName:String
+}
+scalar Long
+
+type Author{
+    id:ID
+    firstName:String
+    lastName:String
+}
